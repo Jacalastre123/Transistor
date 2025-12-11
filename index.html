@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transistor clicker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+
+      body {
+        background-color: azure;
+        font-family: geom;
+        display: flex;
+        align-items: center;
+      }
+
+      #addDisp {
+        height: 70vh;
+        width: 80vw;
+      }
+
+      button {
+        background-color: rgba(180,180,180, 0.8);
+        border-radius: 10px;
+        width: 40vw;
+        height: 1.3em;
+        
+      }
+
+     
+    </style>
+    
+</head>
+<body>
+    <h1>Transister clicker</h1>
+    <h3 id="show">Transistors: 0</h3>
+    <h5 id="level"></h5>
+    <button onclick="add(this)" id="AddDisp">+1</button>
+    <button onclick="duplicate(this)" id="dupe">Double (Cost: 30)</button>
+    <button onclick="autoClick(this)">Autoclick</button>
+<button onclick="increaseLim(this)">Increase limit</button>
+    <div class="content">
+        <h4 id="multiplier"></h4>
+    </div>
+    <meter id="progress"></meter>
+
+    <p>Reference: https://en.wikipedia.org/wiki/List_of_Intel_processors</p>
+    <script>
+
+
+        const show = document.getElementById("show")
+        const dupe = document.getElementById("dupe")
+        const addDisp = document.getElementById("addDisp")
+        const level = document.getElementById("level")
+        const progress = document.getElementById("progress")
+        let transistors = 0
+        let adds = 1
+        let formula = (adds * 3) * 10
+        let valula = transistors / parseInt(progress.max) * 100
+        let maxi = 2300
+	let limit = 10000
+
+        function add(button) {
+
+	if (transistors < limit) {
+            button.innerHTML = `+${adds}`
+            transistors += adds
+            show.innerHTML = "Transistors: " + transistors
+            progress.min = "0"
+            progress.max = maxi
+            progress.value = transistors
+            valula = transistors / parseInt(progress.max) * 100
+            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+
+            
+            if (transistors >= 2300) {
+                level.innerHTML = valula.toFixed(2) +  " Intel 8080"
+                maxi = 4500
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+            else if (transistors < 2300) {
+                level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+                maxi = 2000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+            else if (transistors > 4500 && transistors <= 6500) {
+                level.innerHTML = valula.toFixed(2) +  " Intel 8085"
+                maxi = 29000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+            else if (transistors > 2900 && transistors < 29000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel 8086"
+                maxi = 29000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+		
+            
+        }}
+
+        function duplicate() {
+            formula = (adds * 3) * 10
+            
+            if (transistors >= formula) {
+                transistors -= formula
+                adds = adds == 1 ? 2: adds * 2
+
+                
+                console.log("Yes")
+                
+            }
+            else {
+                console.log("NO")
+            }
+            formula = (adds * 3) * 10
+            dupe.innerHTML = "Double (Cost: " + formula + ")"
+            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+            show.innerHTML = "Transistors: " + transistors
+            
+        }
+
+        function autoClick() {
+            setInterval(add, 250)
+        }
+
+	function increaseLim()  {
+	
+	limit **= 5
+
+
+}
+    </script>
+</body>
+</html>
