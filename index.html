@@ -12,9 +12,7 @@
       body {
         background-color: azure;
         font-family: geom;
-        display: flex;
-        align-items: center;
-		  justify-content: center;
+        text-align: center;
       }
 
       #AddDisp {
@@ -96,12 +94,12 @@
 
             else if (transistors > 4500 && transistors <= 6500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8085"
-                maxi = 29000
+                maxi = 6500
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
             }
 
-            else if (transistors > 2900 && transistors < 29000) {
+            else if (transistors > 6500 && transistors < 29000) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8086"
                 maxi = 29000
                 progress.max = maxi
