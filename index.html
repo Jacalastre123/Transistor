@@ -225,7 +225,7 @@
 		}
 
 		else if (transistors > 995000000 && transistors <= 3000000000) {
-                level.innerHTML = valula.toFixed(2) +  "Apple A8X"
+                level.innerHTML = valula.toFixed(2) +  " Apple A8X"
                 maxi = 3000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
@@ -233,49 +233,49 @@
 
 
 		else if (transistors > 3000000000 && transistors <= 4800000000) {
-                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 5 1600"
+                level.innerHTML = valula.toFixed(2) +  " AMD Ryzen 5 1600"
                 maxi = 4800000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 4800000000 && transistors <= 5990000000) {
-                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 7 3700X"
+                level.innerHTML = valula.toFixed(2) +  " AMD Ryzen 7 3700X"
                 maxi = 5990000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 5990000000 && transistors <= 10700000000) {
-                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 7 5800H"
+                level.innerHTML = valula.toFixed(2) +  " AMD Ryzen 7 5800H"
                 maxi = 10700000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 5990000000 && transistors <= 16000000000) {
-                level.innerHTML = valula.toFixed(2) +  "Apple M1"
+                level.innerHTML = valula.toFixed(2) +  " Apple M1"
                 maxi = 16000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 16000000000 && transistors <= 20000000000) {
-                level.innerHTML = valula.toFixed(2) +  "Apple M2"
+                level.innerHTML = valula.toFixed(2) +  " Apple M2"
                 maxi = 20000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 20000000000 && transistors <= 67000000000) {
-                level.innerHTML = valula.toFixed(2) +  "Apple M2 Max"
+                level.innerHTML = valula.toFixed(2) +  " Apple M2 Max"
                 maxi = 67000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
 		else if (transistors > 67000000000 && transistors <= 92000000000) {
-                level.innerHTML = valula.toFixed(2) +  "Apple M3 Max (Nearly Done!"
+                level.innerHTML = valula.toFixed(2) +  " Apple M3 Max (Nearly Done!)"
                 maxi = 92000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
@@ -293,7 +293,7 @@
             progress.max = maxi
             progress.value = transistors
             valula = transistors / parseInt(progress.max) * 100
-            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+            
 
             checking()
           
@@ -303,7 +303,7 @@
         }
 	else {
 			level.innerHTML = "Sorry, you got to increase your limit!"
-			setTimeout(checking(), 1000)
+			setTimeout(checking, 1000)
 	}
 		}
 
