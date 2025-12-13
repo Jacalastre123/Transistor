@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transistor clicker</title>
+    <title>Transistor clicker Game</title>
+	<meta name="description" content= "Did you every wonder what is the tranistor count of the Intel 4004 or the legendary M3 Max? This is your go to game! You click on the button that says plus 1 and it will give you one pont, once go get the cost, you cam either double your clicks or increase the limit, it may take a long time but try to persevere!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -27,11 +28,15 @@
 
       button {
         background-color: rgba(180,180,180, 0.8);
-        border-radius: 10px;
+        border-radius: 2px;
         width: 40vw;
         height: 1.3em;
         
       }
+
+		meter {
+			width: 80vw;
+		}
 
      
     </style>
@@ -39,16 +44,19 @@
 </head>
 <body>
     <h1>Transister clicker</h1>
+	<p>Can you go from the 4004 to the M3 Max? Start your journey now! This is the computer enthusiast's greatest challenge yet!</p>
     <h3 id="show">Transistors: 0</h3>
+	
     <h5 id="level"></h5>
+	<meter id="progress"></meter>
     <button type=button onclick="add(this)" id="AddDisp">+1</button>
     <button type=button onclick="duplicate(this)" id="dupe">Double (Cost: 30)</button>
     <button type=button onclick="autoClick(this)">Autoclick</button>
-<button type=button onclick="increaseLim(this)">Increase limit</button>
+<button type=button onclick="increaseLim(this)">Increase limit (Cost 30)</button>
     <div class="content">
         <h4 id="multiplier"></h4>
     </div>
-    <meter id="progress"></meter>
+    
 
     <p>Reference: https://en.wikipedia.org/wiki/List_of_Intel_processors</p>
     <script>
@@ -59,27 +67,14 @@
         const addDisp = document.getElementById("addDisp")
         const level = document.getElementById("level")
         const progress = document.getElementById("progress")
-        let transistors = 0
+        let transistors = localStorage.getItem("transistors") || 0
         let adds = 1
         let formula = (adds * 3) * 10
         let valula = transistors / parseInt(progress.max) * 100
         let maxi = 2300
 	let limit = 10000
-
-        function add(button) {
-
-	if (transistors < limit) {
-            button.innerHTML = `+${adds}`
-            transistors += adds
-            show.innerHTML = "Transistors: " + transistors
-            progress.min = "0"
-            progress.max = maxi
-            progress.value = transistors
-            valula = transistors / parseInt(progress.max) * 100
-            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
-
-            
-            if (transistors >= 2300) {
+	function checking() {
+		  if (transistors >= 2300 && tranistors <= 4500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8080"
                 maxi = 4500
                 progress.max = maxi
@@ -100,15 +95,217 @@
                 valula = (transistors / maxi) * 100
             }
 
-            else if (transistors > 6500 && transistors < 29000) {
+            else if (transistors > 6500 && transistors <= 29000) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8086"
                 maxi = 29000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
             }
+
+			else if (transistors > 29000 && transistors <= 55000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel iAPX 186"
+                maxi = 55000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 55000 && transistors <= 275000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel i386"
+                maxi = 275000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 275000 && transistors <= 1200000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel i486 DX"
+                maxi = 1200000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 1200000 && transistors <= 1400000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel iAPX 186"
+                maxi = 1400000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 1400000 && transistors <= 3100000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium I"
+                maxi = 3100000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 3100000 && transistors <= 4500000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium MMX"
+                maxi = 4500000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 4500000 && transistors <= 7500000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium II"
+                maxi = 7500000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
 		
+		else if (transistors > 7500000 && transistors <= 9500000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium III Katmai"
+                maxi = 9500000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		
+		else if (transistors > 9500000 && transistors <= 28100000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium III Coppermine"
+                maxi = 28100000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 4500000 && transistors <= 7500000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium II"
+                maxi = 7500000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+            }
+
+		else if (transistors > 7500000 && transistors <= 77000000 ) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium M"
+                maxi = 77000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 77000000 && transistors <= 230000000 ) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Pentium D"
+                maxi = 230000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 23000000 && transistors <= 291000000 ) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Core 2 Duo Conroe"
+                maxi = 291000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 291000000 && transistors <= 586000000 ) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Core 2 Extreme/Quad Kentsfield"
+                maxi = 586000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 586000000 && transistors <= 820000000 ) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Core 2 Extreme/Quad Yorkfield"
+                maxi = 820000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 995000000 && transistors <= 1400000000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Core i7 Haswell"
+                maxi = 1400000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 1400000000 && transistors <= 2600000000) {
+                level.innerHTML = valula.toFixed(2) +  " Intel Core i7 Haswell-E"
+                maxi = 2600000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 995000000 && transistors <= 3000000000) {
+                level.innerHTML = valula.toFixed(2) +  "Apple A8X"
+                maxi = 3000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+
+		else if (transistors > 3000000000 && transistors <= 4800000000) {
+                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 5 1600"
+                maxi = 4800000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 4800000000 && transistors <= 5990000000) {
+                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 7 3700X"
+                maxi = 5990000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 5990000000 && transistors <= 10700000000) {
+                level.innerHTML = valula.toFixed(2) +  "AMD Ryzen 7 5800H"
+                maxi = 10700000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 5990000000 && transistors <= 16000000000) {
+                level.innerHTML = valula.toFixed(2) +  "Apple M1"
+                maxi = 16000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 16000000000 && transistors <= 20000000000) {
+                level.innerHTML = valula.toFixed(2) +  "Apple M2"
+                maxi = 20000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 20000000000 && transistors <= 67000000000) {
+                level.innerHTML = valula.toFixed(2) +  "Apple M2 Max"
+                maxi = 67000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else if (transistors > 67000000000 && transistors <= 92000000000) {
+                level.innerHTML = valula.toFixed(2) +  "Apple M3 Max (Nearly Done!""
+                maxi = 92000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		
+	}
+        function add(button) {
+
+	if (transistors < limit) {
+            button.innerHTML = `+${adds}`
+            transistors += adds
+            show.innerHTML = "Transistors: " + transistors
+            progress.min = "0"
+            progress.max = maxi
+            progress.value = transistors
+            valula = transistors / parseInt(progress.max) * 100
+            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+
+            checking()
+          
+		// https://en.wikipedia.org/wiki/Transistor_count
+
+		localStorage.setItem("transistors", transistors)
             
-        }}
+        }
+		else {
+			level.innerHTML = "Sorry, you got to increase your limit!"
+			setTimeout(checking(), 1000)
+		}
+		}
 
         function duplicate() {
             formula = (adds * 3) * 10
@@ -126,7 +323,7 @@
             }
             formula = (adds * 3) * 10
             dupe.innerHTML = "Double (Cost: " + formula + ")"
-            level.innerHTML = valula.toFixed(2) +  " Intel 4004"
+            
             show.innerHTML = "Transistors: " + transistors
             
         }
@@ -135,9 +332,12 @@
             setInterval(add, 250)
         }
 
-	function increaseLim()  {
-	
+	function increaseLim(button)  {
+	if (transistors >= formula) {
+                transistors -= formula
 	limit **= 5
+		button.innerHTML = "Increase Limit (Cost:  " + formula ")"
+	}
 
 
 }
