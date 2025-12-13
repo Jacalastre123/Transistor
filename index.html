@@ -59,7 +59,7 @@
     </div>
     
 
-    <p>Reference: https://en.wikipedia.org/wiki/List_of_Intel_processors</p>
+    <p>Reference: https://en.wikipedia.org/wiki/List_of_Intel_processors<br>https://en.wikipedia.org/wiki/Transistor_count</p>
     <script>
 
 
@@ -285,7 +285,7 @@
 	}
         function add(button) {
 
-	if (transistors < limit) {
+	if (transistors <= limit) {
             button.innerHTML = `+${adds}`
             transistors += adds
             show.innerHTML = "Transistors: " + transistors
@@ -297,15 +297,14 @@
 
             checking()
           
-		// https://en.wikipedia.org/wiki/Transistor_count
 
 		localStorage.setItem("transistors", transistors)
             
         }
-		else {
+	else {
 			level.innerHTML = "Sorry, you got to increase your limit!"
 			setTimeout(checking(), 1000)
-		}
+	}
 		}
 
         function duplicate() {
