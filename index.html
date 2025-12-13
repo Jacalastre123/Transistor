@@ -54,6 +54,7 @@
     <button type=button onclick="duplicate(this)" id="dupe">Increase by 3.5 (Cost: 30)</button>
     <button type=button onclick="autoClick(this)">Autoclick</button>
 <button type=button onclick="increaseLim(this)">Increase limit (10000) (Cost 30)</button>
+	<button type=button onclick="reset(this)">Reset</button>
     <div class="content">
         <h4 id="multiplier"></h4>
     </div>
@@ -351,6 +352,20 @@
 		localSotrage.setItem("limit", limit)
 
 }
+
+		function reset() {
+			 transistors = 0
+    	adds = 1
+        limit = 10000
+			button.innerHTML = "Increase Limit (" + limit + ")(Cost: " + formula + ")"
+			dupe.innerHTML = "Increase by 3.5 (Cost: " + formula + ")"
+		localSotrage.setItem("limit", limit)
+        
+        checking()
+			show.innerHTML = "Transistors: " + transistors
+            localStorage.setItem("adds", adds)
+			localStorage.setItem("transistors", transistors)
+		}
     </script>
 </body>
 </html>
