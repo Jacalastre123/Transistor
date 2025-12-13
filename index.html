@@ -51,9 +51,9 @@
     <h5 id="level"></h5>
 	<meter id="progress"></meter>
     <button type=button onclick="add(this)" id="AddDisp">+1</button>
-    <button type=button onclick="duplicate(this)" id="dupe">Double (Cost: 30)</button>
+    <button type=button onclick="duplicate(this)" id="dupe">Increase by 3.5 (Cost: 30)</button>
     <button type=button onclick="autoClick(this)">Autoclick</button>
-<button type=button onclick="increaseLim(this)">Increase limit (Cost 30)</button>
+<button type=button onclick="increaseLim(this)">Increase limit (10000) (Cost 30)</button>
     <div class="content">
         <h4 id="multiplier"></h4>
     </div>
@@ -322,21 +322,27 @@
                 console.log("NO")
             }
             formula = (adds * 2) * 10
-            dupe.innerHTML = "Double (Cost: " + formula + ")"
+            dupe.innerHTML = "Increase by 3.5 (Cost: " + formula + ")"
             
             show.innerHTML = "Transistors: " + transistors
             localStorage.setItem("adds", adds)
         }
 
-        function autoClick() {
-            setInterval(add, 180)
+        function autoClick(button) {
+            const interer = setInterval(add, 180)
+			button.onclick  = function() {
+				clearInterval(interer)
+				button.onclick = function() {
+					autoClick(button)
+				}
+			}
         }
 
 	function increaseLim(button)  {
 	if (transistors >= formula) {
                 transistors -= formula
 	limit *= 3
-		button.innerHTML = "Increase Limit (Cost:  " + formula + ")"
+		button.innerHTML = "Increase Limit (" + limit + ")(Cost: " + formula + ")"
 		localSotrage.setItem("limit", limit)
 	}
 
