@@ -65,7 +65,7 @@
 
         const show = document.getElementById("show")
         const dupe = document.getElementById("dupe")
-        const addDisp = document.getElementById("addDisp")
+        const addDisp = document.getElementById("AddDisp")
         const level = document.getElementById("level")
         const progress = document.getElementById("progress")
         let transistors = localStorage.getItem("transistors") || 0
@@ -75,7 +75,7 @@
         let maxi = 2300
 	let limit = 10000
 	function checking() {
-		  if (transistors >= 2300 && tranistors <= 4500) {
+		  if (transistors >= 2300 && transistors <= 4500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8080"
                 maxi = 4500
                 progress.max = maxi
