@@ -68,12 +68,12 @@
         const addDisp = document.getElementById("AddDisp")
         const level = document.getElementById("level")
         const progress = document.getElementById("progress")
-        let transistors = localStorage.getItem("transistors") || 0
-        let adds = 1
+        let transistors = parseInt(localStorage.getItem("transistors")) || 0
+        let adds = parseInt(localStorage.getItem("adds") || 1
         let formula = (adds * 2) * 10
         let valula = transistors / parseInt(progress.max) * 100
         let maxi = 2300
-	let limit = 10000
+	let limit = parseInt(localSotrage.getItem("limit") || 10000
 	function checking() {
 		  if (transistors >= 2300 && transistors <= 4500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8080"
@@ -299,7 +299,7 @@
           
 
 		localStorage.setItem("transistors", transistors)
-            
+         localStorage.setItem("adds", adds)   
         }
 	else {
 			level.innerHTML = "Sorry, you got to increase your limit!"
@@ -325,7 +325,7 @@
             dupe.innerHTML = "Double (Cost: " + formula + ")"
             
             show.innerHTML = "Transistors: " + transistors
-            
+            localStorage.setItem("adds", adds)
         }
 
         function autoClick() {
@@ -337,6 +337,7 @@
                 transistors -= formula
 	limit *= 3
 		button.innerHTML = "Increase Limit (Cost:  " + formula ")"
+		localSotrage.setItem("limit", limit)
 	}
 
 
