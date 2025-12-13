@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transistor clicker Game</title>
+    <title>Transistor Clicker Game</title>
 	<meta name="google-site-verification" content="rBEhW9MugYE6g84ujeJ4sbt90DhMpjkgjt4nfNBnT8M" />
-	<meta name="description" content= "Did you every wonder what is the tranistor count of the Intel 4004 or the legendary M3 Max? This is your go to game! You click on the button that says plus 1 and it will give you one pont, once go get the cost, you cam either double your clicks or increase the limit, it may take a long time but try to persevere! This is a hard game, lets see if you are bored or not. Made by jacalastre123, lets play!">
+	<meta name="description" content= "Did you every wonder what is the tranistor count of the Intel 4004 or the legendary M3 Max? This is your go to game! You click on the button that says plus 1 and it will give you one pont, once go get the cost, you cam either double your clicks or increase the limit, it may take a long time but try to persevere! This is a hard game, lets see if you are bored or not. The Game included many cpus to beat. Made by Jacalastre123, lets play!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -69,11 +69,11 @@
         const level = document.getElementById("level")
         const progress = document.getElementById("progress")
         let transistors = parseInt(localStorage.getItem("transistors")) || 0
-        let adds = parseInt(localStorage.getItem("adds") || 1
+        let adds = parseInt(localStorage.getItem("adds")) || 1
         let formula = (adds * 2) * 10
         let valula = transistors / parseInt(progress.max) * 100
         let maxi = 2300
-	let limit = parseInt(localSotrage.getItem("limit") || 10000
+	let limit = parseInt(localSotrage.getItem("limit")) || 10000
 	function checking() {
 		  if (transistors >= 2300 && transistors <= 4500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8080"
@@ -336,7 +336,7 @@
 	if (transistors >= formula) {
                 transistors -= formula
 	limit *= 3
-		button.innerHTML = "Increase Limit (Cost:  " + formula ")"
+		button.innerHTML = "Increase Limit (Cost:  " + formula + ")"
 		localSotrage.setItem("limit", limit)
 	}
 
@@ -345,4 +345,3 @@
     </script>
 </body>
 </html>
-
