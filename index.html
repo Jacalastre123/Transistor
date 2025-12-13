@@ -69,7 +69,7 @@
         const progress = document.getElementById("progress")
         let transistors = localStorage.getItem("transistors") || 0
         let adds = 1
-        let formula = (adds * 3) * 10
+        let formula = (adds * 2) * 10
         let valula = transistors / parseInt(progress.max) * 100
         let maxi = 2300
 	let limit = 10000
@@ -308,11 +308,11 @@
 		}
 
         function duplicate() {
-            formula = (adds * 3) * 10
+            formula = (adds * 2) * 10
             
             if (transistors >= formula) {
                 transistors -= formula
-                adds = adds == 1 ? 2: adds * 2
+                adds = adds == 1 ? 4: Math.floor(adds * 3.5)
 
                 
                 console.log("Yes")
@@ -321,7 +321,7 @@
             else {
                 console.log("NO")
             }
-            formula = (adds * 3) * 10
+            formula = (adds * 2) * 10
             dupe.innerHTML = "Double (Cost: " + formula + ")"
             
             show.innerHTML = "Transistors: " + transistors
@@ -329,13 +329,13 @@
         }
 
         function autoClick() {
-            setInterval(add, 250)
+            setInterval(add, 180)
         }
 
 	function increaseLim(button)  {
 	if (transistors >= formula) {
                 transistors -= formula
-	limit **= 5
+	limit *= 3
 		button.innerHTML = "Increase Limit (Cost:  " + formula ")"
 	}
 
