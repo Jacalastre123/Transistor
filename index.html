@@ -74,6 +74,7 @@
         let valula = transistors / parseInt(progress.max) * 100
         let maxi = 2300
 	let limit = parseInt(localStorage.getItem("limit")) || 10000
+		
 	function checking() {
 		  if (transistors >= 2300 && transistors <= 4500) {
                 level.innerHTML = valula.toFixed(2) +  " Intel 8080"
@@ -283,6 +284,14 @@
 
 		
 	}
+		checking()
+		addDisp.innerHTML = `+${adds}`
+		show.innerHTML = "Transistors: " + transistors
+		progress.max = maxi
+            progress.value = transistors
+		valula = transistors / parseInt(progress.max) * 100
+		dupe.innerHTML = "Increase by 3.5 (Cost: " + formula + ")"
+		
         function add(button) {
 
 	if (transistors <= limit) {
@@ -342,10 +351,10 @@
 	if (transistors >= formula) {
                 transistors -= formula
 	limit *= 3
-		button.innerHTML = "Increase Limit (" + limit + ")(Cost: " + formula + ")"
-		localSotrage.setItem("limit", limit)
+		
 	}
-
+	button.innerHTML = "Increase Limit (" + limit + ")(Cost: " + formula + ")"
+		localSotrage.setItem("limit", limit)
 
 }
     </script>
