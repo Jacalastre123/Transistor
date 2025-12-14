@@ -206,7 +206,7 @@
                 valula = (transistors / maxi) * 100
 		}
 
-		else if (transistors > 995000000 && transistors <= 1400000000) {
+		else if (transistors > 820000000 && transistors <= 1400000000) {
                 level.innerHTML = valula.toFixed(2) +  " Intel Core i7 Haswell"
                 maxi = 1400000000
                 progress.max = maxi
@@ -271,12 +271,25 @@
 		}
 
 		else if (transistors > 67000000000 && transistors <= 92000000000) {
-                level.innerHTML = valula.toFixed(2) +  " Apple M3 Max (Nearly Done!)"
+                level.innerHTML = valula.toFixed(2) +  " Apple M3 Max (Modern Boss)"
                 maxi = 92000000000
                 progress.max = maxi
                 valula = (transistors / maxi) * 100
 		}
 
+		else if (transistors > 92000000000 && transistors <= 9020000000000) {
+                level.innerHTML = valula.toFixed(2) +  " 2030 CPU (Final Boss)"
+                maxi = 9020000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
+
+		else {
+			level.innerHTML = valula.toFixed(2) +  " You Won! Here is a even larger bar for you."
+                maxi = 9900000020000000000
+                progress.max = maxi
+                valula = (transistors / maxi) * 100
+		}
 		
 	}
 		checking()
